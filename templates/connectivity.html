@@ -1,0 +1,201 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Connectivity Tools
+{% endblock %}
+
+{% block jumbo %}
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style
+        component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p>
+{% endblock %}
+
+{% block body %}
+<div id="linux-utilities" class="container">
+  <div class="row">
+    <div class="col-sm-12">
+    <!-- Ping -->
+      <h4>Ping</h4>
+      <p>Send ICMP ECHO_REQUEST to network hosts.</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                 $ ping -c 3 umass.edu
+                 PING umass.edu (128.119.8.148) 56(84) bytes of data.
+                 64 bytes from netreg.oit.umass.edu (128.119.8.148): icmp_seq=1 ttl=128 time=21.8 ms
+                 64 bytes from netreg.oit.umass.edu (128.119.8.148): icmp_seq=2 ttl=128 time=21.5 ms
+                 64 bytes from netreg.oit.umass.edu (128.119.8.148): icmp_seq=3 ttl=128 time=19.7 ms
+                 --- umass.edu ping statistics ---
+                 3 packets transmitted, 3 received, 0% packet loss, time 2005ms
+                 rtt min/avg/max/mdev = 19.710/21.040/21.842/0.954 ms
+              </code>
+          </pre>
+      </figure>
+      <!-- Traceroute -->
+      <h4>Traceroute</h4>
+      <p>Print the route packets trace to network host.</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                 $ traceroute mit.edu
+                 traceroute to mit.edu (23.4.118.176), 30 hops max, 60 byte packets
+                 1  * * *
+                 2  n5-rt-1-1-xe-12-0-1.gw.umass.edu (128.119.3.35)  0.727 ms  0.711 ms  0.699 ms
+                 3  core1-rt-et-5-2-0.gw.umass.edu (128.119.0.9)  0.688 ms  0.688 ms  0.675 ms
+                 4  border1-rt-xe-0-1-0.gw.umass.edu (192.80.83.102)  0.644 ms  0.634 ms  0.622 ms
+                 5  nox300gw1-umass-cps.nox.org (207.210.142.241)  3.581 ms  3.564 ms  3.540 ms
+                 6  et-7-3-0.120.rtsw.newy32aoa.net.internet2.edu (198.71.47.57)  7.770 ms  7.882 ms  7.859 ms
+                 7  ae-3.4079.rtsw.wash.net.internet2.edu (162.252.70.138)  13.127 ms  13.109 ms  13.086 ms
+                 8  ae-1.4079.sdn-sw.ashb.net.internet2.edu (162.252.70.137)  13.658 ms  13.869 ms  13.416 ms
+                 9  et-2-1-0.4079.rtsw.clev.net.internet2.edu (162.252.70.55)  18.688 ms  18.638 ms  18.628 ms
+                 10  ae-1.4079.sdn-sw.eqch.net.internet2.edu (162.252.70.131)  27.503 ms  27.579 ms  27.621 ms
+                 11  lo-0.8.rtr.eqch.net.internet2.edu (64.57.29.130)  27.595 ms  28.557 ms  28.545 ms
+                 12  162.252.69.179 (162.252.69.179)  32.320 ms  32.091 ms  31.883 ms
+                 13  a23-4-118-176.deploy.static.akamaitechnologies.com (23.4.118.176)  28.287 ms  28.257 ms  28.104 ms
+              </code>
+          </pre>
+      </figure>
+      <!-- Iperf -->
+      <h4>Iperf</h4>
+      <p>Perform network throughput tests.</p>
+      <b>Server side</b>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                 $ iperf -s
+                 ------------------------------------------------------------
+                 Server listening on TCP port 5001
+                 TCP window size: 85.3 KByte (default)
+                 ------------------------------------------------------------
+              </code>
+          </pre>
+      </figure>
+      <b>Client side</b>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                 $ iperf -c 10.10.1.1
+                 ------------------------------------------------------------
+                 Client connecting to 10.10.1.1, TCP port 5001
+                 TCP window size: 85.0 KByte (default)
+                 ------------------------------------------------------------
+                 [  3] local 10.10.1.3 port 45368 connected with 10.10.1.1 port 5001
+                 [ ID] Interval       Transfer     Bandwidth
+                 [  3]  0.0-10.1 sec   118 MBytes  97.7 Mbits/sec
+              </code>
+          </pre>
+      </figure>
+      <b>Result on the server side</b>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                 ------------------------------------------------------------
+                 Server listening on TCP port 5001
+                 TCP window size: 85.3 KByte (default)
+                 ------------------------------------------------------------
+                 [  4] local 10.10.1.1 port 5001 connected with 10.10.1.3 port 45368
+                 [ ID] Interval       Transfer     Bandwidth
+                 [  4]  0.0-10.3 sec   118 MBytes  95.6 Mbits/sec
+
+              </code>
+          </pre>
+      </figure>
+      <!-- Netstat -->
+      <h4>Netstat</h4>
+      <p>Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                 $ netstat
+                 Active Internet connections (w/o servers)
+                 Proto Recv-Q Send-Q Local Address           Foreign Address         State
+
+              </code>
+          </pre>
+      </figure>
+      <!-- Tcpdump -->
+      <h4>Tcpdump</h4>
+      <p>Dump traffic on a network.</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                $ sudo tcpdump -vvi eth1 -w dump.pcap
+                tcpdump: listening on eth1, link-type EN10MB (Ethernet), capture size 262144 bytes
+                Got 24
+              </code>
+          </pre>
+      </figure>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+               # filtering ACK TCP flags
+	       $ sudo tcpdump 'tcp[13] & 16 != 0'
+
+	       # filtering TCP SYN flags
+	       $ sudo tcpdump 'tcp[13] & 2 != 0'
+
+	       # filtering TCP FIN flags
+	       $ sudo tcpdump 'tcp[13] & 1 != 0'
+              </code>
+          </pre>
+      </figure>
+      <!-- Tshark -->
+      <h4>Tshark</h4>
+      <p>Dump and analyze network traffic.</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                $ sudo tshark -i eth1
+                Capturing on 'enp4s0'
+                1 0.000000000 73.114.134.205 → 128.119.88.168 TCP 60 58360 → 22 [ACK] Seq=1 Ack=1 Win=2161 Len=0
+                2 0.026339010 128.119.89.161 → 128.119.89.255 NBNS 92 Name query NB UMAOITEPO<00>
+                3 0.041025838 JuniperN_a3:11:00 → Broadcast    ARP 60 Who has 128.119.91.161? Tell 128.119.91.254
+                4 0.041034648 JuniperN_a3:11:00 → Broadcast    ARP 60 Who has 128.119.89.120? Tell 128.119.89.254
+                ...
+              </code>
+          </pre>
+      </figure>
+      <!-- Route -->
+      <h4>Route</h4>
+      <p>Show / manipulate the IP routing table.</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                $ route -n
+                Kernel IP routing table
+                Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+                0.0.0.0         172.16.0.1      0.0.0.0         UG    0      0        0 eth0
+                10.10.1.0       0.0.0.0         255.255.255.0   U     0      0        0 eth1
+                172.16.0.0      0.0.0.0         255.240.0.0     U     0      0        0 eth0
+              </code>
+          </pre>
+      </figure>
+      <!-- NMAP -->
+      <h4>Network Mapping (NMAP) Port Scanner</h4>
+      <p>Network exploration tool and security / port scanner.</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                $ nmap -v -A -sS -T4 10.0.0.1
+              </code>
+          </pre>
+      </figure>
+      <!-- TCP -->
+      <h4>What flavor of TCP am I running?</h4>
+      <p>Print the route packets trace to network host (default is cubic)</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                $ cat /proc/sys/net/ipv4/tcp_congestion_control
+                cubic
+              </code>
+          </pre>
+      </figure>
+      </div>
+  </div>
+</div>
+{% endblock %}

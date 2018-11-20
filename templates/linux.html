@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Linux Utilities
+{% endblock %}
+
+{% block jumbo %}
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style
+        component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p>
+{% endblock %}
+
+{% block body %}
+<div id="linux-utilities" class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Linux Utilities</h3>
+      <!-- Cat -->
+      <h4>Cat</h4>
+      <p>Concatenate files and print on the standard output</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                $ echo "Hello, world!" > filename.txt
+                $ cat filename.txt
+                Hello, world!
+              </code>
+          </pre>
+      </figure>
+      <!-- Tail -->
+      <h4>Tail</h4>
+      <p>Output the last part of files</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                $ tail -f fileName.txt
+              </code>
+          </pre>
+      </figure>
+      <!-- Awk -->
+      <h4>Awk</h4>
+      <p>Pattern scanning and processing language</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                $ awk '{ sum += $6; n++ } END { if (n > 0) print sum / n; }'
+              </code>
+          </pre>
+      </figure>
+      <!-- Sed -->
+      <h4>Sed</h4>
+      <p>Stream editor for filtering and transforming text</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                $ for file in *; do mv $file `echo $file | sed -e "s/n1/n2/"`; done
+              </code>
+          </pre>
+      </figure>
+	  <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                $ ifconfig eth0 | awk '/inet addr:/ { print $2 }' | sed 's/addr://'
+                10.10.1.1
+              </code>
+          </pre>
+      </figure>
+      <p>Please refer to <a href="http://sed.sourceforge.net/sed1line.txt">this url</a> for a collection of 1-liner Sed commands.</p>
+      <!-- Watch -->
+      <h4>Watch</h4>
+      <p>Execute a program periodically, showing output fullscreen</p>
+      <figure class=highlight>
+          <pre>
+              <code class=language-bash data-lang=bash>
+                $ watch "ls -lrt | tail -10"
+              </code>
+          </pre>
+      </figure>
+      </div>
+  </div>
+</div>
+{% endblock %}
