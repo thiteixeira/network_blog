@@ -1,4 +1,4 @@
-# export FLASK_APP=application.py
+# export FLASK_APP=app.py
 # debug mode: export FLASK_ENV=development
 # flask run
 
