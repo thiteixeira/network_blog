@@ -5,13 +5,22 @@
 {% endblock %}
 
 {% block jumbo %}
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style
-        component for calling extra attention to featured content or information.</p>
+    <p class="lead">Tools that make our lives easier</p>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
+    <table style="width:50%">
+        <tr>
+            <td><a href=#awk>awk</a></td>
+            <td><a href=#cat>cat</a></td>
+            <td><a href=#sed>sed</a></td>
+            <td><a href=#tail>tail</a></td>
+        </tr>
+        <tr>
+            <td><a href=#watch>watch</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 {% endblock %}
 
 {% block body %}
@@ -20,7 +29,7 @@
     <div class="col-sm-12">
       <h3>Linux Utilities</h3>
       <!-- Cat -->
-      <h4>Cat</h4>
+      <h4 id="cat">Cat</h4>
       <p>Concatenate files and print on the standard output</p>
       <figure class=highlight>
           <pre>
@@ -32,7 +41,7 @@
           </pre>
       </figure>
       <!-- Tail -->
-      <h4>Tail</h4>
+      <h4 id="tail">Tail</h4>
       <p>Output the last part of files</p>
       <figure class=highlight>
           <pre>
@@ -42,7 +51,7 @@
           </pre>
       </figure>
       <!-- Awk -->
-      <h4>Awk</h4>
+      <h4 id="awk">Awk</h4>
       <p>Pattern scanning and processing language</p>
       <figure class=highlight>
           <pre>
@@ -52,7 +61,7 @@
           </pre>
       </figure>
       <!-- Sed -->
-      <h4>Sed</h4>
+      <h4 id="sed">Sed</h4>
       <p>Stream editor for filtering and transforming text</p>
       <figure class=highlight>
           <pre>
@@ -71,7 +80,7 @@
       </figure>
       <p>Please refer to <a href="http://sed.sourceforge.net/sed1line.txt">this url</a> for a collection of 1-liner Sed commands.</p>
       <!-- Watch -->
-      <h4>Watch</h4>
+      <h4 id="watch">Watch</h4>
       <p>Execute a program periodically, showing output fullscreen</p>
       <figure class=highlight>
           <pre>

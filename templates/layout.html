@@ -43,17 +43,11 @@
     </div>
 </nav>
 
-<div class="hero-unit span10">
-    <div class="row">
-      <div class="span10">
-        <div align="center">
-            <h1 class="display-4">{% block heading %}{% endblock %}</h1>
-        </div>
-      {% block jumbo %} {% endblock %}
-      </div>
-    </div>
+<div class="jumbotron">
+  <h1 class="display-4">{% block heading %}{% endblock %}</h1>
+  {% block jumbo %}
+    {% endblock %}
 </div>
-
 
 <div>
     {% block body %}
