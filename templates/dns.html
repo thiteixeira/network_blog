@@ -24,195 +24,190 @@
 {% endblock %}
 
 {% block body %}
-<div id="dns" class="container">
-  <div class="row">
-    <div class="col-sm-12">
-    <!-- Dig -->
-      <h4 id="dig">Dig</h4>
-      <p>DNS lookup utility.</p>
-      <b>Query for "A" record type</b>
-      <figure class=highlight>
-          <pre>
-              <code class=language-bash data-lang=bash>
-                $ dig umass.edu
+<!-- Dig -->
+  <h4 id="dig">Dig</h4>
+  <p>DNS lookup utility.</p>
+  <b>Query for "A" record type</b>
+  <figure class=highlight>
+      <pre>
+          <code class=language-bash data-lang=bash>
+            $ dig umass.edu
 
-                ; <<>> DiG 9.10.3-P4-Ubuntu <<>> umass.edu
-                ;; global options: +cmd
-                ;; Got answer:
-                ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 45598
-                ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+            ; <<>> DiG 9.10.3-P4-Ubuntu <<>> umass.edu
+            ;; global options: +cmd
+            ;; Got answer:
+            ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 45598
+            ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
-                ;; OPT PSEUDOSECTION:
-                ; EDNS: version: 0, flags:; MBZ: 0005 , udp: 512
-                ;; QUESTION SECTION:
-                ;umass.edu.			IN	A
+            ;; OPT PSEUDOSECTION:
+            ; EDNS: version: 0, flags:; MBZ: 0005 , udp: 512
+            ;; QUESTION SECTION:
+            ;umass.edu.			IN	A
 
-                ;; ANSWER SECTION:
-                umass.edu.		5	IN	A	128.119.8.148
+            ;; ANSWER SECTION:
+            umass.edu.		5	IN	A	128.119.8.148
 
-                ;; Query time: 24 msec
-                ;; SERVER: 127.0.1.1#53(127.0.1.1)
-                ;; WHEN: Fri Dec 29 11:12:08 EST 2017
-                ;; MSG SIZE  rcvd: 54
-              </code>
-          </pre>
-      </figure>
-      <b>Query for "NS" record type</b>
-      <figure class=highlight>
-          <pre>
-              <code class=language-bash data-lang=bash>
-                $ dig ns umass.edu
+            ;; Query time: 24 msec
+            ;; SERVER: 127.0.1.1#53(127.0.1.1)
+            ;; WHEN: Fri Dec 29 11:12:08 EST 2017
+            ;; MSG SIZE  rcvd: 54
+          </code>
+      </pre>
+  </figure>
+  <b>Query for "NS" record type</b>
+  <figure class=highlight>
+      <pre>
+          <code class=language-bash data-lang=bash>
+            $ dig ns umass.edu
 
-                ; <<>> DiG 9.10.3-P4-Ubuntu <<>> ns umass.edu
-                ;; global options: +cmd
-                ;; Got answer:
-                ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 3540
-                ;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 4
+            ; <<>> DiG 9.10.3-P4-Ubuntu <<>> ns umass.edu
+            ;; global options: +cmd
+            ;; Got answer:
+            ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 3540
+            ;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 4
 
-                ;; OPT PSEUDOSECTION:
-                ; EDNS: version: 0, flags:; MBZ: 0005 , udp: 512
-                ;; QUESTION SECTION:
-                ;umass.edu.			IN	NS
+            ;; OPT PSEUDOSECTION:
+            ; EDNS: version: 0, flags:; MBZ: 0005 , udp: 512
+            ;; QUESTION SECTION:
+            ;umass.edu.			IN	NS
 
-                ;; ANSWER SECTION:
-                umass.edu.		5	IN	NS	ns3.umass.edu.
-                umass.edu.		5	IN	NS	ns1.umass.edu.
-                umass.edu.		5	IN	NS	ns2.umass.edu.
+            ;; ANSWER SECTION:
+            umass.edu.		5	IN	NS	ns3.umass.edu.
+            umass.edu.		5	IN	NS	ns1.umass.edu.
+            umass.edu.		5	IN	NS	ns2.umass.edu.
 
-                ;; ADDITIONAL SECTION:
-                ns1.umass.edu.		5	IN	A	128.119.10.27
-                ns2.umass.edu.		5	IN	A	128.119.10.28
-                ns3.umass.edu.		5	IN	A	128.103.38.68
+            ;; ADDITIONAL SECTION:
+            ns1.umass.edu.		5	IN	A	128.119.10.27
+            ns2.umass.edu.		5	IN	A	128.119.10.28
+            ns3.umass.edu.		5	IN	A	128.103.38.68
 
-                ;; Query time: 30 msec
-                ;; SERVER: 127.0.1.1#53(127.0.1.1)
-                ;; WHEN: Fri Dec 29 11:13:47 EST 2017
-                ;; MSG SIZE  rcvd: 140
-              </code>
-          </pre>
-      </figure>
-      <b>Query for "MX" (mail server) record type</b>
-      <figure class=highlight>
-          <pre>
-              <code class=language-bash data-lang=bash>
-                $ dig mx umass.edu
+            ;; Query time: 30 msec
+            ;; SERVER: 127.0.1.1#53(127.0.1.1)
+            ;; WHEN: Fri Dec 29 11:13:47 EST 2017
+            ;; MSG SIZE  rcvd: 140
+          </code>
+      </pre>
+  </figure>
+  <b>Query for "MX" (mail server) record type</b>
+  <figure class=highlight>
+      <pre>
+          <code class=language-bash data-lang=bash>
+            $ dig mx umass.edu
 
-                ; <<>> DiG 9.10.3-P4-Ubuntu <<>> mx umass.edu
-                ;; global options: +cmd
-                ;; Got answer:
-                ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 14842
-                ;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 3
+            ; <<>> DiG 9.10.3-P4-Ubuntu <<>> mx umass.edu
+            ;; global options: +cmd
+            ;; Got answer:
+            ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 14842
+            ;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 3
 
-                ;; OPT PSEUDOSECTION:
-                ; EDNS: version: 0, flags:; MBZ: 0005 , udp: 512
-                ;; QUESTION SECTION:
-                ;umass.edu.			IN	MX
+            ;; OPT PSEUDOSECTION:
+            ; EDNS: version: 0, flags:; MBZ: 0005 , udp: 512
+            ;; QUESTION SECTION:
+            ;umass.edu.			IN	MX
 
-                ;; ANSWER SECTION:
-                umass.edu.		5	IN	MX	10 race-2.oit.umass.edu.
-                umass.edu.		5	IN	MX	10 race-1.oit.umass.edu.
-                umass.edu.		5	IN	MX	10 race-4.oit.umass.edu.
-                umass.edu.		5	IN	MX	10 race-3.oit.umass.edu.
+            ;; ANSWER SECTION:
+            umass.edu.		5	IN	MX	10 race-2.oit.umass.edu.
+            umass.edu.		5	IN	MX	10 race-1.oit.umass.edu.
+            umass.edu.		5	IN	MX	10 race-4.oit.umass.edu.
+            umass.edu.		5	IN	MX	10 race-3.oit.umass.edu.
 
-                ;; ADDITIONAL SECTION:
-                race-4.oit.umass.edu.	5	IN	A	128.119.8.37
-                race-3.oit.umass.edu.	5	IN	A	128.119.8.36
+            ;; ADDITIONAL SECTION:
+            race-4.oit.umass.edu.	5	IN	A	128.119.8.37
+            race-3.oit.umass.edu.	5	IN	A	128.119.8.36
 
-                ;; Query time: 25 msec
-                ;; SERVER: 127.0.1.1#53(127.0.1.1)
-                ;; WHEN: Fri Dec 29 11:15:26 EST 2017
-                ;; MSG SIZE  rcvd: 166
-              </code>
-          </pre>
-      </figure>
-      <b>Full DNS lookup hiearchy</b>
-      <figure class=highlight>
-          <pre>
-              <code class=language-bash data-lang=bash>
-                $ dig +trace umass.edu
-              </code>
-          </pre>
-      </figure>
-      <b>Full reverse DNS lookup -- Map an IP addr to a name</b>
-      <figure class=highlight>
-          <pre>
-              <code class=language-bash data-lang=bash>
-                $ dig +trace -x 128.119.8.148
-              </code>
-          </pre>
-      </figure>
-      <b>Full reverse DNS lookup -- Map an IP addr to a name</b>
-      <figure class=highlight>
-          <pre>
-              <code class=language-bash data-lang=bash>
-                $ dig +trace -x 128.119.8.148
-              </code>
-          </pre>
-      </figure>
-      <b>Canonical Hostname (CNAME) with DIG</b>
-      <figure class=highlight>
-          <pre>
-              <code class=language-bash data-lang=bash>
-                $ dig CNAME umass.edu
+            ;; Query time: 25 msec
+            ;; SERVER: 127.0.1.1#53(127.0.1.1)
+            ;; WHEN: Fri Dec 29 11:15:26 EST 2017
+            ;; MSG SIZE  rcvd: 166
+          </code>
+      </pre>
+  </figure>
+  <b>Full DNS lookup hiearchy</b>
+  <figure class=highlight>
+      <pre>
+          <code class=language-bash data-lang=bash>
+            $ dig +trace umass.edu
+          </code>
+      </pre>
+  </figure>
+  <b>Full reverse DNS lookup -- Map an IP addr to a name</b>
+  <figure class=highlight>
+      <pre>
+          <code class=language-bash data-lang=bash>
+            $ dig +trace -x 128.119.8.148
+          </code>
+      </pre>
+  </figure>
+  <b>Full reverse DNS lookup -- Map an IP addr to a name</b>
+  <figure class=highlight>
+      <pre>
+          <code class=language-bash data-lang=bash>
+            $ dig +trace -x 128.119.8.148
+          </code>
+      </pre>
+  </figure>
+  <b>Canonical Hostname (CNAME) with DIG</b>
+  <figure class=highlight>
+      <pre>
+          <code class=language-bash data-lang=bash>
+            $ dig CNAME umass.edu
 
-		; <<>> DiG 9.10.3-P4-Ubuntu <<>> CNAME umass.edu
-		;; global options: +cmd
-		;; Got answer:
-		;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 5576
-		;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+    ; <<>> DiG 9.10.3-P4-Ubuntu <<>> CNAME umass.edu
+    ;; global options: +cmd
+    ;; Got answer:
+    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 5576
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
 
-		;; OPT PSEUDOSECTION:
-		; EDNS: version: 0, flags:; MBZ: 0005 , udp: 512
-		;; QUESTION SECTION:
-		;umass.edu.			IN	CNAME
+    ;; OPT PSEUDOSECTION:
+    ; EDNS: version: 0, flags:; MBZ: 0005 , udp: 512
+    ;; QUESTION SECTION:
+    ;umass.edu.			IN	CNAME
 
-		;; AUTHORITY SECTION:
-		umass.edu.		5	IN	SOA	grid-soa.it.umass.edu. hostmaster.umass.edu. 2015013097 7200 3600 1209600 600
+    ;; AUTHORITY SECTION:
+    umass.edu.		5	IN	SOA	grid-soa.it.umass.edu. hostmaster.umass.edu. 2015013097 7200 3600 1209600 600
 
-		;; Query time: 24 msec
-		;; SERVER: 127.0.1.1#53(127.0.1.1)
-		;; WHEN: Mon Jul 02 17:08:27 EDT 2018
-		;; MSG SIZE  rcvd: 97
-              </code>
-          </pre>
-      </figure>
-      <!-- Whois -->
-      <h4 id="whois">Whois</h4>
-      <p>client for the whois directory service. whois searches for an object in a RFC 3912 database.</p>
-      <figure class=highlight>
-          <pre>
-              <code class=language-bash data-lang=bash>
-                $ whois -h whois.ra.net 128.119.8.148
-              </code>
-          </pre>
-      </figure>
-      <!-- Host -->
-      <h4 id="host">Host</h4>
-      <p>DNS lookup utility.</p>
-      <figure class=highlight>
-          <pre>
-              <code class=language-bash data-lang=bash>
-                $ host umass.edu
-                umass.edu has address 128.119.8.148
-                umass.edu mail is handled by 10 race-4.oit.umass.edu.
-                umass.edu mail is handled by 10 race-3.oit.umass.edu.
-                umass.edu mail is handled by 10 race-2.oit.umass.edu.
-                umass.edu mail is handled by 10 race-1.oit.umass.edu.
-              </code>
-          </pre>
-      </figure>
-      <b>CNAME records</b>
-      <figure class=highlight>
-          <pre>
-              <code class=language-bash data-lang=bash>
-                $ host -t CNAME 128.119.8.148
-		148.8.119.128.in-addr.arpa domain name pointer alumni.umass.edu.
-		148.8.119.128.in-addr.arpa domain name pointer webcrawler.it.umass.edu.
-		148.8.119.128.in-addr.arpa domain name pointer www.umass.edu.
-              </code>
-          </pre>
-      </figure>
-    </div>
-  </div>
-</div>
+    ;; Query time: 24 msec
+    ;; SERVER: 127.0.1.1#53(127.0.1.1)
+    ;; WHEN: Mon Jul 02 17:08:27 EDT 2018
+    ;; MSG SIZE  rcvd: 97
+          </code>
+      </pre>
+  </figure>
+  <!-- Whois -->
+  <h4 id="whois">Whois</h4>
+  <p>client for the whois directory service. whois searches for an object in a RFC 3912 database.</p>
+  <figure class=highlight>
+      <pre>
+          <code class=language-bash data-lang=bash>
+            $ whois -h whois.ra.net 128.119.8.148
+          </code>
+      </pre>
+  </figure>
+  <!-- Host -->
+  <h4 id="host">Host</h4>
+  <p>DNS lookup utility.</p>
+  <figure class=highlight>
+      <pre>
+          <code class=language-bash data-lang=bash>
+            $ host umass.edu
+            umass.edu has address 128.119.8.148
+            umass.edu mail is handled by 10 race-4.oit.umass.edu.
+            umass.edu mail is handled by 10 race-3.oit.umass.edu.
+            umass.edu mail is handled by 10 race-2.oit.umass.edu.
+            umass.edu mail is handled by 10 race-1.oit.umass.edu.
+          </code>
+      </pre>
+  </figure>
+  <b>CNAME records</b>
+  <figure class=highlight>
+      <pre>
+          <code class=language-bash data-lang=bash>
+            $ host -t CNAME 128.119.8.148
+    148.8.119.128.in-addr.arpa domain name pointer alumni.umass.edu.
+    148.8.119.128.in-addr.arpa domain name pointer webcrawler.it.umass.edu.
+    148.8.119.128.in-addr.arpa domain name pointer www.umass.edu.
+          </code>
+      </pre>
+  </figure>
+
 {% endblock %}

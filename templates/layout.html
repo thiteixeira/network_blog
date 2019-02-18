@@ -54,15 +54,23 @@
 </nav>
 
 <div class="jumbotron">
-  <h1 class="display-4">{% block heading %}{% endblock %}</h1>
-  {% block jumbo %}
-    {% endblock %}
+    <div class="container">
+        <h1 class="display-4">{% block heading %}{% endblock %}</h1>
+        {% block jumbo %}
+        {% endblock %}
+    </div>
 </div>
 
-<div>
-    {% block body %}
-    {% endblock %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12">
+      {% block body %}
+      {% endblock %}
+    </div>
+  </div>
 </div>
+
 
 
 <!-- Optional JavaScript -->
