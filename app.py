@@ -33,6 +33,11 @@ def connectivity():
     return render_template("connectivity.html")
 
 
+@app.route("/spider")
+def spider():
+    return render_template("web-scraping.html")
+
+
 @app.route('/sitemap.xml')
 def static_from_root():
     return send_from_directory(app.static_folder, request.path[1:])
