@@ -11,6 +11,7 @@
         <tr>
             <td><a href=#iperf>iperf</a></td>
             <td><a href=#ping>ping</a></td>
+            <td><a href=#mtr>mtr</a></td>
             <td><a href=#netstat>netstat</a></td>
             <td><a href=#nmap>nmap</a></td>
         </tr>
@@ -27,7 +28,6 @@
 <!-- Ping -->
   <h4 id="ping">Ping</h4>
   <p>Send ICMP ECHO_REQUEST to network hosts.</p>
-  <figure class=highlight>
       <pre>
           <code class=language-bash data-lang=bash>
              $ ping -c 3 umass.edu
@@ -40,31 +40,46 @@
              rtt min/avg/max/mdev = 19.710/21.040/21.842/0.954 ms
           </code>
       </pre>
-  </figure>
   <!-- Traceroute -->
   <h4 id="traceroute">Traceroute</h4>
-  <p>Print the route packets trace to network host.</p>
-  <figure class=highlight>
-      <pre>
-          <code class=language-bash data-lang=bash>
-             $ traceroute mit.edu
-             traceroute to mit.edu (23.4.118.176), 30 hops max, 60 byte packets
-             1  * * *
-             2  n5-rt-1-1-xe-12-0-1.gw.umass.edu (128.119.3.35)  0.727 ms  0.711 ms  0.699 ms
-             3  core1-rt-et-5-2-0.gw.umass.edu (128.119.0.9)  0.688 ms  0.688 ms  0.675 ms
-             4  border1-rt-xe-0-1-0.gw.umass.edu (192.80.83.102)  0.644 ms  0.634 ms  0.622 ms
-             5  nox300gw1-umass-cps.nox.org (207.210.142.241)  3.581 ms  3.564 ms  3.540 ms
-             6  et-7-3-0.120.rtsw.newy32aoa.net.internet2.edu (198.71.47.57)  7.770 ms  7.882 ms  7.859 ms
-             7  ae-3.4079.rtsw.wash.net.internet2.edu (162.252.70.138)  13.127 ms  13.109 ms  13.086 ms
-             8  ae-1.4079.sdn-sw.ashb.net.internet2.edu (162.252.70.137)  13.658 ms  13.869 ms  13.416 ms
-             9  et-2-1-0.4079.rtsw.clev.net.internet2.edu (162.252.70.55)  18.688 ms  18.638 ms  18.628 ms
-             10  ae-1.4079.sdn-sw.eqch.net.internet2.edu (162.252.70.131)  27.503 ms  27.579 ms  27.621 ms
-             11  lo-0.8.rtr.eqch.net.internet2.edu (64.57.29.130)  27.595 ms  28.557 ms  28.545 ms
-             12  162.252.69.179 (162.252.69.179)  32.320 ms  32.091 ms  31.883 ms
-             13  a23-4-118-176.deploy.static.akamaitechnologies.com (23.4.118.176)  28.287 ms  28.257 ms  28.104 ms
-          </code>
-      </pre>
-  </figure>
+  <p>Print the route packets trace to network host.<br>
+  Curious how Traceroute works? Read <a href="https://gist.github.com/thiteixeira/50cf5f9c26ca0216e4aa6d42b2440216">Van Jacobson's 1988 announcement</a>
+  on the IETF end2end-interest group.</p>
+    <p><b>TLDR:</b> Traceroute send a udp packet with a TTL of one and listens for an imcp "time exceeded" message. Then it increases the TTL, and so on.<br>
+    The first field is # hops, the second is the gateway used at that hop, the three remaining fields are the time it took the
+        gateway to respond (three probe packets are sent at each ttl setting).</p>
+  <pre>
+      <code class=language-bash data-lang=bash>
+         $ traceroute mit.edu
+         traceroute to mit.edu (23.4.118.176), 30 hops max, 60 byte packets
+         1  * * *
+         2  n5-rt-1-1-xe-12-0-1.gw.umass.edu (128.119.3.35)  0.727 ms  0.711 ms  0.699 ms
+         3  core1-rt-et-5-2-0.gw.umass.edu (128.119.0.9)  0.688 ms  0.688 ms  0.675 ms
+         4  border1-rt-xe-0-1-0.gw.umass.edu (192.80.83.102)  0.644 ms  0.634 ms  0.622 ms
+         5  nox300gw1-umass-cps.nox.org (207.210.142.241)  3.581 ms  3.564 ms  3.540 ms
+         6  et-7-3-0.120.rtsw.newy32aoa.net.internet2.edu (198.71.47.57)  7.770 ms  7.882 ms  7.859 ms
+         7  ae-3.4079.rtsw.wash.net.internet2.edu (162.252.70.138)  13.127 ms  13.109 ms  13.086 ms
+         8  ae-1.4079.sdn-sw.ashb.net.internet2.edu (162.252.70.137)  13.658 ms  13.869 ms  13.416 ms
+         9  et-2-1-0.4079.rtsw.clev.net.internet2.edu (162.252.70.55)  18.688 ms  18.638 ms  18.628 ms
+         10  ae-1.4079.sdn-sw.eqch.net.internet2.edu (162.252.70.131)  27.503 ms  27.579 ms  27.621 ms
+         11  lo-0.8.rtr.eqch.net.internet2.edu (64.57.29.130)  27.595 ms  28.557 ms  28.545 ms
+         12  162.252.69.179 (162.252.69.179)  32.320 ms  32.091 ms  31.883 ms
+         13  a23-4-118-176.deploy.static.akamaitechnologies.com (23.4.118.176)  28.287 ms  28.257 ms  28.104 ms
+      </code>
+  </pre>
+  <!-- MTR -->
+  <h4 id="mtr">MTR (My TraceRoute)</h4>
+  <p>A network diagnostic tool similar to Traceroute.<br>
+  <pre>
+      <code class=language-bash data-lang=bash>
+         $ mtr google.com
+
+         $ mtr -z umass.edu  # for AS number
+
+         $ mtr -h  # for a list of commands
+      </code>
+  </pre>
+
   <!-- Iperf -->
   <h4 id="iperf">Iperf</h4>
   <p>Perform network throughput tests.</p>

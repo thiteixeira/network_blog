@@ -28,7 +28,6 @@
   <h4 id="dig">Dig</h4>
   <p>DNS lookup utility.</p>
   <b>Query for "A" record type</b>
-  <figure class=highlight>
       <pre>
           <code class=language-bash data-lang=bash>
             $ dig umass.edu
@@ -53,9 +52,7 @@
             ;; MSG SIZE  rcvd: 54
           </code>
       </pre>
-  </figure>
   <b>Query for "NS" record type</b>
-  <figure class=highlight>
       <pre>
           <code class=language-bash data-lang=bash>
             $ dig ns umass.edu
@@ -87,9 +84,7 @@
             ;; MSG SIZE  rcvd: 140
           </code>
       </pre>
-  </figure>
   <b>Query for "MX" (mail server) record type</b>
-  <figure class=highlight>
       <pre>
           <code class=language-bash data-lang=bash>
             $ dig mx umass.edu
@@ -121,33 +116,25 @@
             ;; MSG SIZE  rcvd: 166
           </code>
       </pre>
-  </figure>
   <b>Full DNS lookup hiearchy</b>
-  <figure class=highlight>
       <pre>
           <code class=language-bash data-lang=bash>
             $ dig +trace umass.edu
           </code>
       </pre>
-  </figure>
   <b>Full reverse DNS lookup -- Map an IP addr to a name</b>
-  <figure class=highlight>
       <pre>
           <code class=language-bash data-lang=bash>
             $ dig +trace -x 128.119.8.148
           </code>
       </pre>
-  </figure>
   <b>Full reverse DNS lookup -- Map an IP addr to a name</b>
-  <figure class=highlight>
       <pre>
           <code class=language-bash data-lang=bash>
             $ dig +trace -x 128.119.8.148
           </code>
       </pre>
-  </figure>
   <b>Canonical Hostname (CNAME) with DIG</b>
-  <figure class=highlight>
       <pre>
           <code class=language-bash data-lang=bash>
             $ dig CNAME umass.edu
@@ -172,21 +159,17 @@
     ;; MSG SIZE  rcvd: 97
           </code>
       </pre>
-  </figure>
   <!-- Whois -->
   <h4 id="whois">Whois</h4>
   <p>client for the whois directory service. whois searches for an object in a RFC 3912 database.</p>
-  <figure class=highlight>
       <pre>
           <code class=language-bash data-lang=bash>
             $ whois -h whois.ra.net 128.119.8.148
           </code>
       </pre>
-  </figure>
   <!-- Host -->
   <h4 id="host">Host</h4>
   <p>DNS lookup utility.</p>
-  <figure class=highlight>
       <pre>
           <code class=language-bash data-lang=bash>
             $ host umass.edu
@@ -197,9 +180,7 @@
             umass.edu mail is handled by 10 race-1.oit.umass.edu.
           </code>
       </pre>
-  </figure>
   <b>CNAME records</b>
-  <figure class=highlight>
       <pre>
           <code class=language-bash data-lang=bash>
             $ host -t CNAME 128.119.8.148
@@ -208,6 +189,4 @@
     148.8.119.128.in-addr.arpa domain name pointer www.umass.edu.
           </code>
       </pre>
-  </figure>
-
 {% endblock %}

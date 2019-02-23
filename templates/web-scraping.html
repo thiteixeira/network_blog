@@ -26,7 +26,44 @@
 
 {% block body %}
     <h3>Reading Rent Data from Craigslist in Boston</h3>
-    <p>// TODO </p>
+    <p>Snippet to get Boston's Craigslist apartments under $2,000 </p>
+    <pre>
+        <code>
+            #!/usr/bin/python
+
+            import sys
+            import requests
+            from bs4 import BeautifulSoup
+
+            myUrl = 'https://boston.craigslist.org/search/aap'
+
+            def crawler(max_pages):
+              max_pages *= 120
+              page = 0
+              while page < max_pages:
+                url = myUrl + '?s=' + str(page)
+                r = requests.get(url)
+                print('GET method received ' + str(r.status_code))
+
+                # converts to Beautiful Soup object
+                so = BeautifulSoup(r.text, "lxml")
+
+                prices = so.findAll('span', {'class': 'result-price'})
+
+                for price in prices:
+                   pr = price.text
+                   priceInt = int(pr.replace('$',''))
+
+                   if (priceInt < 2000):
+                       print (pr)
+                       print ('--')
+
+                page += 120
+
+            crawler(1) # <-- Number of pages to be crawled
+
+        </code>
+    </pre>
     
     <h3>Reading House Prices</h3>
     <p>// TODO </p>

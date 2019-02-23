@@ -9,20 +9,32 @@
     <hr class="my-4">
     <table style="width:50%">
         <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td><a href=#arp>arp</a></td>
+            <td><a href=#arping>arping</a></td>
+            <td><a href=#ethtool>ethtool</a></td>
+            <td><a href=#ifconfig>ifconfig</a></td>
         </tr>
         <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td><a href=#iptables>iptables</a></td>
+            <td><a href=#netcat>netcat</a></td>
+            <td><a href=#netem>netem</a></td>
+            <td><a href=#nslookup>nslookup</a></td>
         </tr>
     </table>
 {% endblock %}
 
 {% block body %}
-    <p>TODO</p>
+  <!-- Arp -->
+  <h4 id="arp">Arp</h4>
+  <p>Manipulate the system ARP cache</p>
+  <figure class=highlight>
+      <pre>
+          <code class=language-bash data-lang=bash>
+            $ arp
+            Address                  HWtype  HWaddress           Flags Mask            Iface
+            _gateway                 ether   00:50:56:fc:da:9f   C                     ens33
+            192.168.173.254          ether   00:50:56:e0:9d:5e   C                     ens33
+          </code>
+      </pre>
+  </figure>
 {% endblock %}
