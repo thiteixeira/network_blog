@@ -73,4 +73,50 @@
             $ watch "ls -lrt | tail -10"
           </code>
       </pre>
+  <!-- Login Attempts -->
+  <h4 id="login-attempts">Login Attempts</h4>
+  <p>View the login attempts made from remote computers (attacks) made to a machine.</p>
+  <pre>
+      <code class="language-bash" data-lang=bash>
+          $ cat /var/log/auth.log | grep ssh
+
+          # Results in (I actually grep for 'Failed password)
+          # You can clearly see below the different login attempts from users such as <b>ubnt</b>,
+          # <b>bananapi</b>, and <b>vyos</b>.
+          ... sshd[14332]: Failed password for invalid user ubnt from 12.178.76.78 port 46641 ssh2
+          ... sshd[14338]: Failed password for root from 218.92.1.158 port 34456 ssh2
+          ... sshd[14338]: message repeated 2 times: [ Failed password for root from 218.92.1.158 port 34456 ssh2]
+          ... sshd[14340]: Failed password for invalid user pi from 12.178.76.78 port 47067 ssh2
+          ... sshd[14348]: Failed password for root from 218.92.1.158 port 25525 ssh2
+          ... sshd[14348]: message repeated 2 times: [ Failed password for root from 218.92.1.158 port 25525 ssh2]
+          ... sshd[14350]: Failed password for invalid user bananapi from 12.178.76.78 port 47334 ssh2
+          ... sshd[14352]: Failed password for root from 218.92.1.158 port 23170 ssh2
+          ... sshd[14352]: message repeated 2 times: [ Failed password for root from 218.92.1.158 port 23170 ssh2]
+          ... sshd[14358]: Failed password for invalid user vyos from 12.178.76.78 port 47541 ssh2
+          ... sshd[14360]: Failed password for invalid user tester from 139.59.13.116 port 49610 ssh2
+          ... sshd[14362]: Failed password for root from 218.92.1.158 port 17489 ssh2
+          ... sshd[14362]: message repeated 2 times: [ Failed password for root from 218.92.1.158 port 17489 ssh2]
+          ... sshd[14368]: Failed password for root from 218.92.1.158 port 21804 ssh2
+          ... sshd[14368]: Failed password for root from 218.92.1.158 port 21804 ssh2
+          ... sshd[14368]: Failed password for root from 218.92.1.158 port 21804 ssh2
+          ... sshd[14370]: Failed password for invalid user xbian from 12.178.76.78 port 47710 ssh2
+          ... sshd[14372]: Failed password for invalid user rahul from 35.185.206.194 port 47164 ssh2
+          ... sshd[14374]: Failed password for invalid user teamspeak3 from 149.202.51.131 port 51757 ssh2
+          ... sshd[14376]: Failed password for root from 218.92.1.158 port 15761 ssh2
+          ... sshd[14376]: message repeated 2 times: [ Failed password for root from 218.92.1.158 port 15761 ssh2]
+          ... sshd[14380]: Failed password for invalid user vyatta from 12.178.76.78 port 47853 ssh2
+          ... sshd[14382]: Failed password for invalid user sshuser from 220.128.119.251 port 58208 ssh2
+          ... sshd[14384]: Failed password for root from 218.92.1.158 port 63361 ssh2
+          ... sshd[14384]: message repeated 2 times: [ Failed password for root from 218.92.1.158 port 63361 ssh2]
+          ... sshd[14388]: Failed password for root from 218.92.1.158 port 61722 ssh2
+          ... sshd[14388]: message repeated 2 times: [ Failed password for root from 218.92.1.158 port 61722 ssh2]
+          ... sshd[14392]: Failed password for root from 218.92.1.158 port 62807 ssh2
+          ... sshd[14392]: message repeated 2 times: [ Failed password for root from 218.92.1.158 port 62807 ssh2]
+          ... sshd[14398]: Failed password for root from 218.92.1.158 port 10905 ssh2
+          ... sshd[14398]: message repeated 2 times: [ Failed password for root from 218.92.1.158 port 10905 ssh2]
+          ... sshd[14400]: Failed password for invalid user test from 139.59.13.116 port 59612 ssh2
+          ... sshd[14404]: Failed password for invalid user guest from 149.202.51.131 port 42434 ssh2
+
+      </code>
+  </pre>
 {% endblock %}
