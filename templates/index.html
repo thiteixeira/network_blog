@@ -9,65 +9,70 @@
         Checkout the tabs above or the shortcuts below for a collection of
         tools and Linux utilities!</p>
     <hr class="my-4">
-    <h3>Shortcuts</h3>
-    <table style="width:50%">
-        <tr>
-            <td><a href=./routing#arp>arp</td>
-            <td>arping</td>
-            <td><a href=./linux#awk>awk</a></td>
-            <td><a href=./linux#cat>cat</a></td>
-            <td>curl</td>
-            <td><a href=./dns#dig>dig</a></td>
-        </tr>
-        <tr>
-            <td>ethtool</td>
-            <td>grep</td>
-            <td><a href=./dns#host>host</a></td>
-            <td>htop</td>
-            <td>httpie</td>
-            <td>ifconfig</td>
-        </tr>
-        <tr>
-            <td><a href=./connectivity#iperf>iperf</a></td>
-            <td>iptables</td>
-            <td>lsof</td>
-            <td><a href=./connectivity#mtr>mtr</a></td>
-            <td>netcat</td>
-            <td>netem</td>
-        </tr>
-        <tr>
-            <td><a href=./connectivity#netstat>netstat</a></td>
-            <td><a href=./connectivity#nmap>nmap</a></td>
-            <td>nslookup</td>
-            <td><a href=./connectivity#ping>ping</a></td>
-            <td>ps</td>
-            <td><a href=./connectivity#route>route</a></td>
-        </tr>
-        <tr>
-            <td>scapy</td>
-            <td>scp</td>
-            <td><a href=./linux#sed>sed</a></td>
-            <td>ss</td>
-            <td>ssh</td>
-            <td>ssldump</td>
-        </tr>
-        <tr>
-            <td><a href=./linux#tail>tail</a></td>
-            <td>tc</td>
-            <td><a href=./connectivity#tcpdump>tcpdump</a></td>
-            <td>telnet</td>
-            <td>tmux</td>
-            <td><a href=./connectivity#traceroute>traceroute</a></td>
-        </tr>
-        <tr>
-            <td><a href=./connectivity#tshark>tshark</a></td>
-            <td><a href=./linux#watch>watch</a></td>
-            <td>wifite</td>
-            <td>wget</td>
-            <td><a href=./dns#whois>whois</a></td>
-            <td></td>
-        </tr>
-    </table>
+    <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Commands
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href=./routing#arp>arp</a>
+            <a class="dropdown-item" href="#">arping</a>
+            <a class="dropdown-item" href=./linux#awk>awk</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href=./linux#cat>cat</a>
+            <a class="dropdown-item" href="#">curl</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href=./dns#dig>dig</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">ethtool</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">grep</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href=./dns#host>host</a>
+            <a class="dropdown-item" href="#">htop</a>
+            <a class="dropdown-item" href="#">httpie</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">ifconfig</a>
+            <a class="dropdown-item" href=./connectivity#iperf>iperf</a>
+            <a class="dropdown-item" href="#">iptables</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">lsof</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href=./connectivity#mtr>mtr</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">netcat</a>
+            <a class="dropdown-item" href="#">netem</a>
+            <a class="dropdown-item" href=./connectivity#netstat>netstat</a>
+            <a class="dropdown-item" href=./connectivity#nmap>nmap</a>
+            <a class="dropdown-item" href="#">nslookup</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href=./connectivity#ping>ping</a>
+            <a class="dropdown-item" href="#">ps</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href=./connectivity#route>route</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">scapy</a>
+            <a class="dropdown-item" href="#">scp</a>
+            <a class="dropdown-item" href=./linux#sed>sed</a>
+            <a class="dropdown-item" href="#">sort</a>
+            <a class="dropdown-item" href="#">ss</a>
+            <a class="dropdown-item" href="#">ssh</a>
+            <a class="dropdown-item" href="#">ssldump</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href=./linux#tail>tail</a>
+            <a class="dropdown-item" href="#">tc</a>
+            <a class="dropdown-item" href=./connectivity#tcpdump>tcpdump</a>
+            <a class="dropdown-item" href="#">telnet</a>
+            <a class="dropdown-item" href="#">tmux</a>
+            <a class="dropdown-item" href=./connectivity#traceroute>traceroute</a>
+            <a class="dropdown-item" href=./connectivity#tshark>tshark</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href=./linux#watch>watch</a>
+            <a class="dropdown-item" href="#">wifite</a>
+            <a class="dropdown-item" href="#">wget</a>
+            <a class="dropdown-item" href=./dns#whois>whois</a>
+        </div>
+    </div>
 {% endblock %}
 
 {% block body %}
